@@ -50,6 +50,8 @@ function init() {
   });
   const geolocation = ymaps.geolocation;
 
+  console.log(geolocation);
+
   geolocation
     .get({
       provider: "browser",
