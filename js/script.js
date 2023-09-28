@@ -62,7 +62,7 @@ function init() {
 
       ourCoords = result.geoObjects;
 
-      console.log(123);
+      console.log(ourCoords.position);
 
       //Создание карты
       myMap = new ymaps.Map(
