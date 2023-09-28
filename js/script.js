@@ -76,31 +76,31 @@ function init() {
       );
 
       //Добавление нашей геометки
-      //   deleteControls.forEach((control) => {
-      //     myMap.controls.remove(control);
-      //   });
+      deleteControls.forEach((control) => {
+        myMap.controls.remove(control);
+      });
 
-      //   myMap.geoObjects.add(
-      //     new ymaps.Placemark(
-      //       ourCoords.position,
-      //       {},
-      //       {
-      //         preset: "islands#circleIcon",
-      //         iconColor: "red",
-      //       }
-      //     )
-      //   );
+      myMap.geoObjects.add(
+        new ymaps.Placemark(
+          ourCoords.position,
+          {},
+          {
+            preset: "islands#circleIcon",
+            iconColor: "red",
+          }
+        )
+      );
 
-      //   //вывод всех мериприятий в радиусе 200 м
-      //   printMark(myMap, events, 200);
+      //вывод всех мериприятий в радиусе 200 м
+      printMark(myMap, events, 200);
 
-      //   //создание и вывод окружности
-      //   circle = new ymaps.Circle([ourCoords.position, 200], null, {
-      //     fillColor: "#DB709377",
-      //     strokeColor: "#990066",
-      //   });
+      //создание и вывод окружности
+      circle = new ymaps.Circle([ourCoords.position, 200], null, {
+        fillColor: "#DB709377",
+        strokeColor: "#990066",
+      });
 
-      //   myMap.geoObjects.add(circle);
+      myMap.geoObjects.add(circle);
     });
 }
 
