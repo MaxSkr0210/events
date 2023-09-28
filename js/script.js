@@ -1,4 +1,4 @@
-// let myMap;
+let myMap;
 // let circle;
 // let ourCoords;
 // let radius;
@@ -41,70 +41,70 @@
 // const list = document.querySelector(".events");
 // const dropDownInput = document.querySelector(".dropdown__input-hidden");
 
-// //   MAP
-// function init() {
-//   const geolocationControl = new ymaps.control.GeolocationControl({
-//     options: {
-//       float: "right",
-//     },
-//   });
-//   const geolocation = ymaps.geolocation;
+//   MAP
+function init() {
+  const geolocationControl = new ymaps.control.GeolocationControl({
+    options: {
+      float: "right",
+    },
+  });
+  const geolocation = ymaps.geolocation;
 
-//   console.log(geolocation);
+  console.log(geolocation);
 
-//   geolocation
-//     .get({
-//       provider: "browser",
-//       mapStateAutoApply: true,
-//     })
-//     .then((result) => {
-//       result.geoObjects.options.set("preset", "islands#redCircleIcon");
+  geolocation
+    .get({
+      provider: "browser",
+      mapStateAutoApply: true,
+    })
+    .then((result) => {
+      result.geoObjects.options.set("preset", "islands#redCircleIcon");
 
-//       ourCoords = result.geoObjects;
+      ourCoords = result.geoObjects;
 
-//       //Создание карты
-//       myMap = new ymaps.Map(
-//         "map",
-//         {
-//           center: ourCoords.position,
-//           zoom: 15,
-//           controls: [geolocationControl],
-//         },
-//         {
-//           searchControlProvider: "yandex#search",
-//         }
-//       );
+      //Создание карты
+      myMap = new ymaps.Map(
+        "map",
+        {
+          center: ourCoords.position,
+          zoom: 15,
+          controls: [geolocationControl],
+        },
+        {
+          searchControlProvider: "yandex#search",
+        }
+      );
 
-//       //Добавление нашей геометки
-//       //   deleteControls.forEach((control) => {
-//       //     myMap.controls.remove(control);
-//       //   });
+      //Добавление нашей геометки
+      //   deleteControls.forEach((control) => {
+      //     myMap.controls.remove(control);
+      //   });
 
-//       //   myMap.geoObjects.add(
-//       //     new ymaps.Placemark(
-//       //       ourCoords.position,
-//       //       {},
-//       //       {
-//       //         preset: "islands#circleIcon",
-//       //         iconColor: "red",
-//       //       }
-//       //     )
-//       //   );
+      //   myMap.geoObjects.add(
+      //     new ymaps.Placemark(
+      //       ourCoords.position,
+      //       {},
+      //       {
+      //         preset: "islands#circleIcon",
+      //         iconColor: "red",
+      //       }
+      //     )
+      //   );
 
-//       //   //вывод всех мериприятий в радиусе 200 м
-//       //   printMark(myMap, events, 200);
+      //   //вывод всех мериприятий в радиусе 200 м
+      //   printMark(myMap, events, 200);
 
-//       //   //создание и вывод окружности
-//       //   circle = new ymaps.Circle([ourCoords.position, 200], null, {
-//       //     fillColor: "#DB709377",
-//       //     strokeColor: "#990066",
-//       //   });
+      //   //создание и вывод окружности
+      //   circle = new ymaps.Circle([ourCoords.position, 200], null, {
+      //     fillColor: "#DB709377",
+      //     strokeColor: "#990066",
+      //   });
 
-//       //   myMap.geoObjects.add(circle);
-//     });
-// }
+      //   myMap.geoObjects.add(circle);
+    });
+}
 
-// ymaps.ready(init);
+ymaps.ready(init);
 
 // //    DROPDOWN
 
@@ -154,18 +154,18 @@
 // //   });
 // // });
 
-var myMap;
+// var myMap;
 
-// Дождёмся загрузки API и готовности DOM.
-ymaps.ready(init);
+// // Дождёмся загрузки API и готовности DOM.
+// ymaps.ready(init);
 
-function init() {
-  // Создание экземпляра карты и его привязка к контейнеру с
-  // заданным id ("map").
-  myMap = new ymaps.Map("map", {
-    // При инициализации карты обязательно нужно указать
-    // её центр и коэффициент масштабирования.
-    center: [55.76, 37.64], // Москва
-    zoom: 10,
-  });
-}
+// function init() {
+//   // Создание экземпляра карты и его привязка к контейнеру с
+//   // заданным id ("map").
+//   myMap = new ymaps.Map("map", {
+//     // При инициализации карты обязательно нужно указать
+//     // её центр и коэффициент масштабирования.
+//     center: [55.76, 37.64], // Москва
+//     zoom: 10,
+//   });
+// }
