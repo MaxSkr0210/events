@@ -1,45 +1,45 @@
 let myMap;
-// let circle;
-// let ourCoords;
-// let radius;
+let circle;
+let ourCoords;
+let radius;
 
-// const deleteControls = [
-//   "trafficControl",
-//   "searchControl",
-//   "scaleLine",
-//   "typeSelector",
-// ];
+const deleteControls = [
+  "trafficControl",
+  "searchControl",
+  "scaleLine",
+  "typeSelector",
+];
 
-// // const events = JSON.parse(document.querySelector("#events").textContent);
-// const events = [
-//   {
-//     address: "СТ Коммунальник, 11, Тула",
-//     description: "Около Хомякого",
-//     end_date: "2023-07-18T14:56:00Z",
-//     event_name: "Хомякого",
-//     id: 1,
-//     img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/prop1-css-background-image.JPG",
-//     is_registered: true,
-//     price: 4000.99,
-//     start_date: "2023-07-18T14:55:00Z",
-//   },
-//   {
-//     address:
-//       "Подгорная улица, 7, посёлок Угольный, посёлок Скуратовский, Тула, 300911",
-//     description: "Около ясной поляны",
-//     end_date: "2023-07-25T10:00:00Z",
-//     event_name: "Ясная поляна",
-//     id: 2,
-//     img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/prop1-css-background-image.JPG",
-//     is_registered: true,
-//     price: 100,
-//     start_date: "2023-07-23T14:12:00Z",
-//   },
-// ];
+// const events = JSON.parse(document.querySelector("#events").textContent);
+const events = [
+  {
+    address: "СТ Коммунальник, 11, Тула",
+    description: "Около Хомякого",
+    end_date: "2023-07-18T14:56:00Z",
+    event_name: "Хомякого",
+    id: 1,
+    img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/prop1-css-background-image.JPG",
+    is_registered: true,
+    price: 4000.99,
+    start_date: "2023-07-18T14:55:00Z",
+  },
+  {
+    address:
+      "Подгорная улица, 7, посёлок Угольный, посёлок Скуратовский, Тула, 300911",
+    description: "Около ясной поляны",
+    end_date: "2023-07-25T10:00:00Z",
+    event_name: "Ясная поляна",
+    id: 2,
+    img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/prop1-css-background-image.JPG",
+    is_registered: true,
+    price: 100,
+    start_date: "2023-07-23T14:12:00Z",
+  },
+];
 
-// const myEvents = [];
-// const list = document.querySelector(".events");
-// const dropDownInput = document.querySelector(".dropdown__input-hidden");
+const myEvents = [];
+const list = document.querySelector(".events");
+const dropDownInput = document.querySelector(".dropdown__input-hidden");
 
 //   MAP
 function init() {
@@ -76,10 +76,6 @@ function init() {
       );
 
       //Добавление нашей геометки
-      deleteControls.forEach((control) => {
-        myMap.controls.remove(control);
-      });
-
       myMap.geoObjects.add(
         new ymaps.Placemark(
           ourCoords.position,
@@ -90,6 +86,11 @@ function init() {
           }
         )
       );
+
+      //удалине панели управления
+      deleteControls.forEach((control) => {
+        myMap.controls.remove(control);
+      });
 
       //вывод всех мериприятий в радиусе 200 м
       printMark(myMap, events, 200);
