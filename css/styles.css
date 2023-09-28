@@ -4,6 +4,10 @@
   --backgroundColor: #fafafa;
 }
 
+canvas {
+  width: auto !important;
+}
+
 * {
   user-select: none;
 }
