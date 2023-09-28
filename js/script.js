@@ -58,9 +58,9 @@ function init() {
       mapStateAutoApply: true,
     })
     .then((result) => {
-      result.geoObjects.options.set("preset", "islands#redCircleIcon");
+      // result.geoObjects.options.set("preset", "islands#redCircleIcon");
 
-      ourCoords = result.geoObjects;
+      // ourCoords = result.geoObjects;
 
       //Создание карты
       myMap = new ymaps.Map(
@@ -76,31 +76,31 @@ function init() {
       );
 
       //Добавление нашей геометки
-      deleteControls.forEach((control) => {
-        myMap.controls.remove(control);
-      });
+      //   deleteControls.forEach((control) => {
+      //     myMap.controls.remove(control);
+      //   });
 
-      myMap.geoObjects.add(
-        new ymaps.Placemark(
-          ourCoords.position,
-          {},
-          {
-            preset: "islands#circleIcon",
-            iconColor: "red",
-          }
-        )
-      );
+      //   myMap.geoObjects.add(
+      //     new ymaps.Placemark(
+      //       ourCoords.position,
+      //       {},
+      //       {
+      //         preset: "islands#circleIcon",
+      //         iconColor: "red",
+      //       }
+      //     )
+      //   );
 
-      //вывод всех мериприятий в радиусе 200 м
-      printMark(myMap, events, 200);
+      //   //вывод всех мериприятий в радиусе 200 м
+      //   printMark(myMap, events, 200);
 
-      //создание и вывод окружности
-      circle = new ymaps.Circle([ourCoords.position, 200], null, {
-        fillColor: "#DB709377",
-        strokeColor: "#990066",
-      });
+      //   //создание и вывод окружности
+      //   circle = new ymaps.Circle([ourCoords.position, 200], null, {
+      //     fillColor: "#DB709377",
+      //     strokeColor: "#990066",
+      //   });
 
-      myMap.geoObjects.add(circle);
+      //   myMap.geoObjects.add(circle);
     });
 }
 
@@ -108,48 +108,48 @@ ymaps.ready(init);
 
 //    DROPDOWN
 
-// Полифилл для метода forEach для NodeList
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = (callback, args) => {
-    args = args || window;
-    for (var i = 0; i < this.length; i++) {
-      callback.call(args, this[i], i, this);
-    }
-  };
-}
+// // Полифилл для метода forEach для NodeList
+// if (window.NodeList && !NodeList.prototype.forEach) {
+//   NodeList.prototype.forEach = (callback, args) => {
+//     args = args || window;
+//     for (var i = 0; i < this.length; i++) {
+//       callback.call(args, this[i], i, this);
+//     }
+//   };
+// }
 
-document.querySelectorAll(".dropdown").forEach((dropDownWrapper) => {
-  const dropDownBtn = dropDownWrapper.querySelector(".dropdown__button");
-  const dropDownList = dropDownWrapper.querySelector(".dropdown__list");
-  const dropDownListItems = dropDownList.querySelectorAll(
-    ".dropdown__list-item"
-  );
-  const dropDownInput = dropDownWrapper.querySelector(
-    ".dropdown__input-hidden"
-  );
+// document.querySelectorAll(".dropdown").forEach((dropDownWrapper) => {
+//   const dropDownBtn = dropDownWrapper.querySelector(".dropdown__button");
+//   const dropDownList = dropDownWrapper.querySelector(".dropdown__list");
+//   const dropDownListItems = dropDownList.querySelectorAll(
+//     ".dropdown__list-item"
+//   );
+//   const dropDownInput = dropDownWrapper.querySelector(
+//     ".dropdown__input-hidden"
+//   );
 
-  dropDownBtn.addEventListener("click", function (e) {
-    dropDownList.classList.toggle("dropdown__list--visible");
-    this.classList.add("dropdown__button--active");
-  });
+//   dropDownBtn.addEventListener("click", function (e) {
+//     dropDownList.classList.toggle("dropdown__list--visible");
+//     this.classList.add("dropdown__button--active");
+//   });
 
-  dropDownListItems.forEach((listItem) => {
-    listItem.addEventListener("click", function (e) {
-      e.stopPropagation();
-      dropDownBtn.innerText = this.innerText;
-      dropDownBtn.focus();
-      dropDownInput.value = this.dataset.value;
-      dropDownList.classList.remove("dropdown__list--visible");
-      radius = Number(this.dataset.value);
-      circle.geometry.setRadius(radius);
-      printMark(myMap, events, radius);
-    });
-  });
+//   dropDownListItems.forEach((listItem) => {
+//     listItem.addEventListener("click", function (e) {
+//       e.stopPropagation();
+//       dropDownBtn.innerText = this.innerText;
+//       dropDownBtn.focus();
+//       dropDownInput.value = this.dataset.value;
+//       dropDownList.classList.remove("dropdown__list--visible");
+//       radius = Number(this.dataset.value);
+//       circle.geometry.setRadius(radius);
+//       printMark(myMap, events, radius);
+//     });
+//   });
 
-  document.addEventListener("click", (e) => {
-    if (e.target !== dropDownBtn) {
-      dropDownBtn.classList.remove("dropdown__button--active");
-      dropDownList.classList.remove("dropdown__list--visible");
-    }
-  });
-});
+//   document.addEventListener("click", (e) => {
+//     if (e.target !== dropDownBtn) {
+//       dropDownBtn.classList.remove("dropdown__button--active");
+//       dropDownList.classList.remove("dropdown__list--visible");
+//     }
+//   });
+// });
