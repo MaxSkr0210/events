@@ -51,7 +51,17 @@ function init() {
   const geolocation = ymaps.geolocation;
 
   console.log(geolocation);
-
+  myMap = new ymaps.Map(
+    "map",
+    {
+      center: ourCoords.position,
+      zoom: 15,
+      controls: [geolocationControl],
+    },
+    {
+      searchControlProvider: "yandex#search",
+    }
+  );
   geolocation
     .get({
       provider: "browser",
@@ -59,27 +69,12 @@ function init() {
     })
     .then((result) => {
       // result.geoObjects.options.set("preset", "islands#redCircleIcon");
-
       // ourCoords = result.geoObjects;
-
       //Создание карты
-      myMap = new ymaps.Map(
-        "map",
-        {
-          center: ourCoords.position,
-          zoom: 15,
-          controls: [geolocationControl],
-        },
-        {
-          searchControlProvider: "yandex#search",
-        }
-      );
-
       //Добавление нашей геометки
       //   deleteControls.forEach((control) => {
       //     myMap.controls.remove(control);
       //   });
-
       //   myMap.geoObjects.add(
       //     new ymaps.Placemark(
       //       ourCoords.position,
@@ -90,16 +85,13 @@ function init() {
       //       }
       //     )
       //   );
-
       //   //вывод всех мериприятий в радиусе 200 м
       //   printMark(myMap, events, 200);
-
       //   //создание и вывод окружности
       //   circle = new ymaps.Circle([ourCoords.position, 200], null, {
       //     fillColor: "#DB709377",
       //     strokeColor: "#990066",
       //   });
-
       //   myMap.geoObjects.add(circle);
     });
 }
