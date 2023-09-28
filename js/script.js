@@ -76,7 +76,6 @@ function init() {
       );
 
       //Добавление нашей геометки
-
       deleteControls.forEach((control) => {
         myMap.controls.remove(control);
       });
